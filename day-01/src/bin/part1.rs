@@ -4,9 +4,8 @@ fn main() {
     dbg!(output);
 }
 
-
-fn part1(input: &str) -> String {
-    let output = input
+fn part1(input: &str) -> u32 {
+    let output: u32 = input
         .lines()
         .map(|line: &str| {
             let mut it =
@@ -23,20 +22,18 @@ fn part1(input: &str) -> String {
             .expect("should be a number")
         })
         .sum::<u32>();
-
-    output.to_string()
+    output
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-
     #[test]
     fn it_works() {
         let result = part1("1abc2
         pqr3stu8vwx
         a1b2c3d4e5f
         treb7uchet");
-        assert_eq!(result, "142".to_string());
+        assert_eq!(result, 142);
     }
 }
